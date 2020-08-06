@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sfork</title>
+    <title>Sfork</title>
+    <link rel='stylesheet' href='/css/bootstrap.css'>
+    <link rel='stylesheet' href='/css/style.css'>
 <body>
-{+body/}
+    <div class='container'>
+        <div class='row'>
+        <div class='col-md-offset-2 col-md-7'>
+        {+body/}
+        </div>    
+    </div>
+    <script src='/js/bootstrap.js'>
+    <script src="http://code.jquery.com/jquery-1.9.0rc1.js"></script
 </body>
 </head>
 </html>

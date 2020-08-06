@@ -26,7 +26,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //route
 app.get('/', function (req, res) {
-  res.render('index');
+  //PG connect
+  pg.connect((err, client, done) => {
+    if (err) throw err;
+    const query = new QueryStream('SELECT * FROM recipes', [1000000]);
+    const stream = client.query(query);
+    //release the client when the stream is finished
+    stream.on('end', done);
+    stream.pipe(JSONStream.stringify()).pipe(process.stdout);
+  });
 });
 
 //Server
